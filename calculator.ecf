@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-14-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-14-0 http://www.eiffel.com/developers/xml/configuration-1-14-0.xsd" name="calculator" uuid="08C0424D-728F-4F6F-8C30-5BE714CC98FE">
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-18-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-18-0 http://www.eiffel.com/developers/xml/configuration-1-18-0.xsd" name="calculator" uuid="08C0424D-728F-4F6F-8C30-5BE714CC98FE">
 	<target name="calculator">
 		<root class="ANY" feature="default_create"/>
-		<option warning="true" void_safety="transitional" syntax="provisional">
+		<option warning="true" is_obsolete_routine_type="true" syntax="provisional" manifest_array_type="mismatch_warning">
 			<assertions precondition="true" postcondition="true" check="true" invariant="true" loop="true" supplier_precondition="true"/>
 		</option>
+		<capability>
+			<concurrency support="none"/>
+			<void_safety support="transitional" use="transitional"/>
+		</capability>
 		<library name="base" location="$ISE_LIBRARY\library\base\base-safe.ecf"/>
+		<library name="test_extension" location="iron:test_extension:test_extension.ecf"/>
 		<library name="vision2" location="$ISE_LIBRARY\library\vision2\vision2-safe.ecf"/>
 		<cluster name="calculator" location=".\" recursive="true">
 			<file_rule>
+				<exclude>/.git$</exclude>
+				<exclude>/.svn$</exclude>
+				<exclude>/CVS$</exclude>
 				<exclude>/EIFGENs$</exclude>
 				<exclude>tests</exclude>
-				<exclude>/CVS$</exclude>
-				<exclude>/.svn$</exclude>
-				<exclude>/.git$</exclude>
 			</file_rule>
 		</cluster>
 	</target>
@@ -22,15 +27,14 @@
 		<root class="MOCK_APPLICATION" feature="default_create"/>
 		<file_rule>
 			<exclude>/.git$</exclude>
-			<exclude>/EIFGENs$</exclude>
-			<exclude>/CVS$</exclude>
 			<exclude>/.svn$</exclude>
+			<exclude>/CVS$</exclude>
+			<exclude>/EIFGENs$</exclude>
 			<include>tests</include>
 		</file_rule>
 		<option profile="true">
 		</option>
 		<setting name="console_application" value="false"/>
-		<library name="test_set_helper" location="$GITHUB\test_set_helper\test_set_helper.ecf"/>
 		<library name="testing" location="$ISE_LIBRARY\library\testing\testing-safe.ecf"/>
 		<cluster name="tests" location=".\tests\" recursive="true"/>
 	</target>
